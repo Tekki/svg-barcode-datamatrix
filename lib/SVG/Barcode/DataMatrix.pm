@@ -118,35 +118,46 @@ L<id|SVG::Barcode/id>,
 L<margin|SVG::Barcode/margin>,
 L<width|SVG::Barcode/width>.
 
-=head2 level
+=head2 dotsize
 
-    $value  = $datamatrix->level;
-    $datamatrix = $datamatrix->level($newvalue);
-    $datamatrix = $datamatrix->level('');          # M
-
-Getter and setter for the error correction level.
-One of one of C<L> (low), C<M> (medium), C<Q> (quartile), C<H> (high). Default C<M>.
-
-=head2 size
-
-    $value  = $datamatrix->size;
-    $datamatrix = $datamatrix->size($newvalue);
-    $datamatrix = $datamatrix->size('');          # 1
+    $value      = $datamatrix->dotsize;
+    $datamatrix = $datamatrix->dotsize($newvalue);
+    $datamatrix = $datamatrix->dotsize('');          # 1
 
 Getter and setter for the size of the dots. Default C<1>.
 
-=head2 version
+=head2 encoding_mode
 
-    $value  = $datamatrix->version;
-    $datamatrix = $datamatrix->version($newvalue);
-    $datamatrix = $datamatrix->version('');          # 0
+    $value      = $datamatrix->encoding_mode;
+    $datamatrix = $datamatrix->encoding_mode($newvalue);
+    $datamatrix = $datamatrix->encoding_mode('');          # AUTO
 
-Getter and setter for the symbol version.
-From C<1> to C<40>. C<0> will adapt the version to the required capacity. Default C<0>.
+Getter and setter for the encoding mode.
+One of C<AUTO>, C<ASCII>, C<C40>, C<TEXT>, C<BASE256>, or C<NONE>. Default C<AUTO>.
+
+=head2 process_tilde
+
+    $value      = $datamatrix->process_tilde;
+    $datamatrix = $datamatrix->process_tilde($newvalue);
+    $datamatrix = $datamatrix->process_tilde('');          # 0
+
+Getter and setter for the tilde flag.
+If set to C<1> the tilde character C<~> is being used to recognize special characters.
+Default C<0>.
+
+=head2 size
+
+    $value      = $datamatrix->size;
+    $datamatrix = $datamatrix->size($newvalue);
+    $datamatrix = $datamatrix->size('');          # AUTO
+
+Getter and setter for the module size of the matrix.
+C<height x width>, one of C<AUTO>, C<10x10>, C<12x12>, C<14x14>, C<16x16>, C<18x18>, C<20x20>, C<22x22>, C<24x24>, C<26x26>, C<32x32>, C<36x36>, C<40x40>, C<44x44>, C<48x48>, C<52x52>, C<64x64>, C<72x72>, C<80x80>, C<88x88>, C<96x96>, C<104x104>, C<120x120>, C<132x132>, C<144x144>, C<8x18>, C<8x32>, C<12x26>, C<12x36>, C<16x36>, C<16x48>.
+Default C<AUTO>.
 
 =head1 SEE ALSO
 
-L<SVG::Barcode>, L<Text::DataMatrix>.
+L<SVG::Barcode>, L<Barcode::DataMatrix>.
 
 =head1 AUTHOR & COPYRIGHT
 
