@@ -1,51 +1,8 @@
-package SVG::Barcode::DataMatrix;
-use parent 'SVG::Barcode';
-use strict;
-use warnings;
-use utf8;
-use v5.24;
-use feature 'signatures';
-no warnings 'experimental::signatures';
-
-use Exporter 'import';
-our @EXPORT_OK = qw|plot_datamatrix|;
-
-use Barcode::DataMatrix;
-
-our $VERSION = '0.10';
-
-use constant DEFAULTS => {
-  dotsize       => 1,
-  encoding_mode => 'AUTO',
-  process_tilde => 0,
-  size          => 'AUTO',
-};
-
-SVG::Barcode::_param(__PACKAGE__, $_, DEFAULTS->{$_}) for keys DEFAULTS->%*;
-
-# functions
-
-sub plot_datamatrix ($text, %params) {
-  return __PACKAGE__->new(%params)->plot($text);
-}
-
-# internal methods
-
-sub _plot ($self, $text) {
-  $self->{plotter}
-    ||= Barcode::DataMatrix->new($self->%{qw|encoding_mode process_tilde size|});
-  $self->_plot_2d($self->{plotter}->barcode($text), 1);
-}
-
-1;
-
-=encoding utf8
-
-=head1 NAME
+# NAME
 
 SVG::Barcode::DataMatrix - Generator for SVG based QR Codes
 
-=head1 SYNOPSIS
+# SYNOPSIS
 
     use SVG::Barcode::DataMatrix;
 
@@ -76,13 +33,13 @@ SVG::Barcode::DataMatrix - Generator for SVG based QR Codes
 
     $svg = plot_datamatrix('https://perldoc.pl', %params);
 
-=head1 DESCRIPTION
+# DESCRIPTION
 
-L<SVG::Barcode::DataMatrix> is a generator for SVG based QR Codes.
+[SVG::Barcode::DataMatrix](https://metacpan.org/pod/SVG::Barcode::DataMatrix) is a generator for SVG based QR Codes.
 
-=head1 FUNCTIONS
+# FUNCTIONS
 
-=head2 plot_datamatrix
+## plot\_datamatrix
 
     use SVG::Barcode::DataMatrix 'plot_datamatrix';
 
@@ -90,68 +47,66 @@ L<SVG::Barcode::DataMatrix> is a generator for SVG based QR Codes.
 
 Returns a QR Code using the provided text and parameters.
 
-=head1 CONSTRUCTOR
+# CONSTRUCTOR
 
-=head2 new
+## new
 
     $datamatrix = SVG::Barcode::DataMatrix->new;            # create with defaults
     $datamatrix = SVG::Barcode::DataMatrix->new(%params);
 
-Creates a new QR Code plotter. Inherited from L<SVG::Barcode|SVG::Barcode/new>.
+Creates a new QR Code plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
 
-=head1 METHODS
+# METHODS
 
-=head2 plot
+## plot
 
     $svg = $datamatrix->plot($text);
 
-Creates a SVG code. Inherited from L<SVG::Barcode|SVG::Barcode/plot>.
+Creates a SVG code. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#plot).
 
-=head1 PARAMETERS
+# PARAMETERS
 
-Inherited from L<SVG::Barcode>:
-L<background|SVG::Barcode/background>,
-L<class|SVG::Barcode/class>,
-L<foreground|SVG::Barcode/foreground>,
-L<height|SVG::Barcode/height>,
-L<id|SVG::Barcode/id>,
-L<margin|SVG::Barcode/margin>,
-L<width|SVG::Barcode/width>.
+Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
+[background](https://metacpan.org/pod/SVG::Barcode#background),
+[class](https://metacpan.org/pod/SVG::Barcode#class),
+[foreground](https://metacpan.org/pod/SVG::Barcode#foreground),
+[height](https://metacpan.org/pod/SVG::Barcode#height),
+[id](https://metacpan.org/pod/SVG::Barcode#id),
+[margin](https://metacpan.org/pod/SVG::Barcode#margin),
+[width](https://metacpan.org/pod/SVG::Barcode#width).
 
-=head2 level
+## level
 
     $value  = $datamatrix->level;
     $datamatrix = $datamatrix->level($newvalue);
     $datamatrix = $datamatrix->level('');          # M
 
 Getter and setter for the error correction level.
-One of one of C<L> (low), C<M> (medium), C<Q> (quartile), C<H> (high). Default C<M>.
+One of one of `L` (low), `M` (medium), `Q` (quartile), `H` (high). Default `M`.
 
-=head2 size
+## size
 
     $value  = $datamatrix->size;
     $datamatrix = $datamatrix->size($newvalue);
     $datamatrix = $datamatrix->size('');          # 1
 
-Getter and setter for the size of the dots. Default C<1>.
+Getter and setter for the size of the dots. Default `1`.
 
-=head2 version
+## version
 
     $value  = $datamatrix->version;
     $datamatrix = $datamatrix->version($newvalue);
     $datamatrix = $datamatrix->version('');          # 0
 
 Getter and setter for the symbol version.
-From C<1> to C<40>. C<0> will adapt the version to the required capacity. Default C<0>.
+From `1` to `40`. `0` will adapt the version to the required capacity. Default `0`.
 
-=head1 SEE ALSO
+# SEE ALSO
 
-L<SVG::Barcode>, L<Text::DataMatrix>.
+[SVG::Barcode](https://metacpan.org/pod/SVG::Barcode), [Text::DataMatrix](https://metacpan.org/pod/Text::DataMatrix).
 
-=head1 AUTHOR & COPYRIGHT
+# AUTHOR & COPYRIGHT
 
 © 2019 by Tekki (Rolf Stöckli).
 
 This program is free software, you can redistribute it and/or modify it under the terms of the Artistic License version 2.0.
-
-=cut
