@@ -75,35 +75,46 @@ Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
 [margin](https://metacpan.org/pod/SVG::Barcode#margin),
 [width](https://metacpan.org/pod/SVG::Barcode#width).
 
-## level
+## dotsize
 
-    $value  = $datamatrix->level;
-    $datamatrix = $datamatrix->level($newvalue);
-    $datamatrix = $datamatrix->level('');          # M
-
-Getter and setter for the error correction level.
-One of one of `L` (low), `M` (medium), `Q` (quartile), `H` (high). Default `M`.
-
-## size
-
-    $value  = $datamatrix->size;
-    $datamatrix = $datamatrix->size($newvalue);
-    $datamatrix = $datamatrix->size('');          # 1
+    $value      = $datamatrix->dotsize;
+    $datamatrix = $datamatrix->dotsize($newvalue);
+    $datamatrix = $datamatrix->dotsize('');          # 1
 
 Getter and setter for the size of the dots. Default `1`.
 
-## version
+## encoding\_mode
 
-    $value  = $datamatrix->version;
-    $datamatrix = $datamatrix->version($newvalue);
-    $datamatrix = $datamatrix->version('');          # 0
+    $value      = $datamatrix->encoding_mode;
+    $datamatrix = $datamatrix->encoding_mode($newvalue);
+    $datamatrix = $datamatrix->encoding_mode('');          # AUTO
 
-Getter and setter for the symbol version.
-From `1` to `40`. `0` will adapt the version to the required capacity. Default `0`.
+Getter and setter for the encoding mode.
+One of `AUTO`, `ASCII`, `C40`, `TEXT`, `BASE256`, or `NONE`. Default `AUTO`.
+
+## process\_tilde
+
+    $value      = $datamatrix->process_tilde;
+    $datamatrix = $datamatrix->process_tilde($newvalue);
+    $datamatrix = $datamatrix->process_tilde('');          # 0
+
+Getter and setter for the tilde flag.
+If set to `1` the tilde character `~` is being used to recognize special characters.
+Default `0`.
+
+## size
+
+    $value      = $datamatrix->size;
+    $datamatrix = $datamatrix->size($newvalue);
+    $datamatrix = $datamatrix->size('');          # AUTO
+
+Getter and setter for the module size of the matrix.
+`height x width`, one of `AUTO`, `10x10`, `12x12`, `14x14`, `16x16`, `18x18`, `20x20`, `22x22`, `24x24`, `26x26`, `32x32`, `36x36`, `40x40`, `44x44`, `48x48`, `52x52`, `64x64`, `72x72`, `80x80`, `88x88`, `96x96`, `104x104`, `120x120`, `132x132`, `144x144`, `8x18`, `8x32`, `12x26`, `12x36`, `16x36`, `16x48`.
+Default `AUTO`.
 
 # SEE ALSO
 
-[SVG::Barcode](https://metacpan.org/pod/SVG::Barcode), [Text::DataMatrix](https://metacpan.org/pod/Text::DataMatrix).
+[SVG::Barcode](https://metacpan.org/pod/SVG::Barcode), [Barcode::DataMatrix](https://metacpan.org/pod/Barcode::DataMatrix).
 
 # AUTHOR & COPYRIGHT
 
