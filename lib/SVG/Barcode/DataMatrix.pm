@@ -12,7 +12,7 @@ our @EXPORT_OK = qw|plot_datamatrix|;
 
 use Barcode::DataMatrix;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 use constant DEFAULTS => {
   dotsize       => 1,

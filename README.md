@@ -1,6 +1,6 @@
 # NAME
 
-SVG::Barcode::DataMatrix - Generator for SVG based QR Codes
+SVG::Barcode::DataMatrix - Generator for SVG based Data Matrix barcodes
 
 # SYNOPSIS
 
@@ -35,7 +35,7 @@ SVG::Barcode::DataMatrix - Generator for SVG based QR Codes
 
 # DESCRIPTION
 
-[SVG::Barcode::DataMatrix](https://metacpan.org/pod/SVG::Barcode::DataMatrix) is a generator for SVG based QR Codes.
+[SVG::Barcode::DataMatrix](https://metacpan.org/pod/SVG::Barcode::DataMatrix) is a generator for SVG based Data Matrix barcodes.
 
 # FUNCTIONS
 
@@ -45,7 +45,7 @@ SVG::Barcode::DataMatrix - Generator for SVG based QR Codes
 
     $svg = plot_datamatrix($text, %params);
 
-Returns a QR Code using the provided text and parameters.
+Returns a Data Matrix using the provided text and parameters.
 
 # CONSTRUCTOR
 
@@ -54,7 +54,7 @@ Returns a QR Code using the provided text and parameters.
     $datamatrix = SVG::Barcode::DataMatrix->new;            # create with defaults
     $datamatrix = SVG::Barcode::DataMatrix->new(%params);
 
-Creates a new QR Code plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
+Creates a new Data Matrix plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
 
 # METHODS
 
