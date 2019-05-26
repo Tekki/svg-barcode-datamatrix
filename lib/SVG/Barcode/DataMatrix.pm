@@ -43,7 +43,7 @@ sub _plot ($self, $text) {
 
 =head1 NAME
 
-SVG::Barcode::DataMatrix - Generator for SVG based QR Codes
+SVG::Barcode::DataMatrix - Generator for SVG based Data Matrix barcodes
 
 =head1 SYNOPSIS
 
@@ -78,7 +78,7 @@ SVG::Barcode::DataMatrix - Generator for SVG based QR Codes
 
 =head1 DESCRIPTION
 
-L<SVG::Barcode::DataMatrix> is a generator for SVG based QR Codes.
+L<SVG::Barcode::DataMatrix> is a generator for SVG based Data Matrix barcodes.
 
 =head1 FUNCTIONS
 
@@ -88,7 +88,7 @@ L<SVG::Barcode::DataMatrix> is a generator for SVG based QR Codes.
 
     $svg = plot_datamatrix($text, %params);
 
-Returns a QR Code using the provided text and parameters.
+Returns a Data Matrix using the provided text and parameters.
 
 =head1 CONSTRUCTOR
 
@@ -97,7 +97,7 @@ Returns a QR Code using the provided text and parameters.
     $datamatrix = SVG::Barcode::DataMatrix->new;            # create with defaults
     $datamatrix = SVG::Barcode::DataMatrix->new(%params);
 
-Creates a new QR Code plotter. Inherited from L<SVG::Barcode|SVG::Barcode/new>.
+Creates a new Data Matrix plotter. Inherited from L<SVG::Barcode|SVG::Barcode/new>.
 
 =head1 METHODS
 
