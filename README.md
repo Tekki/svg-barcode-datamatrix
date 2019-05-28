@@ -21,6 +21,7 @@ SVG::Barcode::DataMatrix - Generator for SVG based Data Matrix barcodes
     $datamatrix->class;
     $datamatrix->width;
     $datamatrix->height;
+    $datamatrix->scale;
 
     my %params = (
       level  => 'H',
@@ -73,6 +74,7 @@ Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
 [height](https://metacpan.org/pod/SVG::Barcode#height),
 [id](https://metacpan.org/pod/SVG::Barcode#id),
 [margin](https://metacpan.org/pod/SVG::Barcode#margin),
+[scale](https://metacpan.org/pod/SVG::Barcode#scale),
 [width](https://metacpan.org/pod/SVG::Barcode#width).
 
 ## dotsize
